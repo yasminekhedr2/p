@@ -23,7 +23,7 @@ class Category extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             
-           Row(children: [ Image.asset(
+           Row(children: [ Image.network(
               img,
               width: 50, 
               height: 50, 
