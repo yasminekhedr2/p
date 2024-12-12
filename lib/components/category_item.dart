@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class Category extends StatelessWidget {
-  Category(this.text, this.color, this.ontap, this.img);
+  Category(this.text, this.ontap, this.img);
   
   String? text;
-  Color color;
+ 
   String img;
   Function()? ontap;
 
@@ -18,12 +18,12 @@ class Category extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         width: double.infinity,
         height: 80,
-        color: color,
+        color: Color(0xffF6F5F2),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             
-           Row(children: [ Image.network(
+           Row(children: [ Image.asset(
               img,
               width: 50, 
               height: 50, 

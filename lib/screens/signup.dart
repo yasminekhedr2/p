@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task12/screens/home.dart';
 import 'package:task12/screens/signin.dart';
 import 'package:task12/swidgets/custtombutton.dart';
 import 'package:task12/swidgets/textfield.dart';
@@ -102,9 +103,9 @@ class _SigninState extends State<Signup> {
                               CustomButton(
                 text: "Login",
                 onPressed: () {
-                  // Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  //   // return const MobileScreen();
-                  // },));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const homepage();
+                  },));
                 },
               ),
                Padding(
