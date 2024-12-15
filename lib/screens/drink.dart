@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:task12/swidgets/smallbutton.dart';
+import 'package:task12/screens/cartpage.dart';
+import 'package:task12/swidgets/cart.dart';
+
 
 
 class Drink extends StatefulWidget {
-  const Drink({super.key});
+  const Drink({super.key, required this.name, required this.price, required this.image});
 
+    final String name;
+  final double price;
+  final String image;
   @override
   State<Drink> createState() => _DrinkState();
 }
 
 class _DrinkState extends State<Drink> {
+
   bool isShowmore = true;
   double _currentValue = 50;
   String? _selectedOption;
@@ -272,14 +278,36 @@ class _DrinkState extends State<Drink> {
                     const SizedBox(
                       width: 50,
                     ),
-                    const Column(
+                     Column(
                       children: [
                         Text(
                           "Go to Chart",
                           style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold),
                         ),
-                        Smallbutton(text: "Buy it")
+                        // Smallbutton(text: "Buy it",)
+
+
+                         ElevatedButton(
+                    onPressed: () {
+                      Cart.items.add({
+                        "name": widget.name,
+                        "price": widget.price,
+                        "image": widget.image,
+                      });
+                      Navigator.push(context, MaterialPageRoute(builder: (context) {
+                        return const Checkout();
+                      }));
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFFE1894B),
+                      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                    ),
+                    child: const Text(
+                      "Buy It",
+                      style: TextStyle(color: Colors.white, fontSize: 18),
+                    ),
+                  ),
                       ],
                     )
                   ],
@@ -292,3 +320,81 @@ class _DrinkState extends State<Drink> {
     );
   }
 }
+
+
+
+
+// import 'package:flutter/material.dart';
+
+// import 'package:task12/screens/cartpage.dart';
+
+// import 'package:task12/swidgets/cart.dart';
+
+// class Drink extends StatefulWidget {
+//   final String name;
+//   final double price;
+//   final String image;
+
+//   const Drink({super.key, required this.name, required this.price, required this.image});
+
+//   @override
+//   State<Drink> createState() => _DrinkState();
+// }
+
+// class _DrinkState extends State<Drink> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: const Color(0xffF6F5F2),
+//       body: SingleChildScrollView(
+//         child: Column(
+//           children: [
+//             // صورة المشروب
+//             Image.asset(widget.image, height: 300, fit: BoxFit.cover),
+//             const SizedBox(height: 20),
+//             // معلومات المشروب
+//             Padding(
+//               padding: const EdgeInsets.symmetric(horizontal: 20),
+//               child: Column(
+//                 crossAxisAlignment: CrossAxisAlignment.start,
+//                 children: [
+//                   Text(
+//                     widget.name,
+//                     style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+//                   ),
+//                   const SizedBox(height: 10),
+//                   Text(
+//                     "\$${widget.price}",
+//                     style: const TextStyle(fontSize: 18, color: Colors.grey),
+//                   ),
+//                   const SizedBox(height: 20),
+//                   // زر الشراء
+//                   ElevatedButton(
+//                     onPressed: () {
+//                       Cart.items.add({
+//                         "name": widget.name,
+//                         "price": widget.price,
+//                         "image": widget.image,
+//                       });
+//                       Navigator.push(context, MaterialPageRoute(builder: (context) {
+//                         return const Checkout();
+//                       }));
+//                     },
+//                     style: ElevatedButton.styleFrom(
+//                       backgroundColor: const Color(0xFFE1894B),
+//                       padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+//                     ),
+//                     child: const Text(
+//                       "Buy It",
+//                       style: TextStyle(color: Colors.white, fontSize: 18),
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
