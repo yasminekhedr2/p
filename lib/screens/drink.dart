@@ -96,10 +96,10 @@ class _DrinkState extends State<Drink> {
                       min: 0,
                       max: 100,
                       divisions:
-                          100, // Optional: Divides the slider into 100 steps
+                          100, 
                       label: _currentValue
                           .toInt()
-                          .toString(), // Shows a label on the thumb
+                          .toString(),
                       onChanged: (double value) {
                         setState(() {
                           _currentValue = value;
@@ -182,14 +182,14 @@ class _DrinkState extends State<Drink> {
                               ),
                             ),
                             SizedBox(
-                              width: 100, // عرض الزر
+                              width: 100, 
                               child: Center(
                                 child:
                                     Text('M', style: TextStyle(fontSize: 16)),
                               ),
                             ),
                             SizedBox(
-                              width: 100, // عرض الزر
+                              width: 100, 
                               child: Center(
                                 child:
                                     Text('L', style: TextStyle(fontSize: 16)),
@@ -218,9 +218,9 @@ class _DrinkState extends State<Drink> {
                   DropdownButtonFormField<String>(
                     value: _selectedStatus,
                     decoration: const InputDecoration(
-                      labelText: 'Temprature', // Label for the dropdown
+                      labelText: 'Temprature',
                       border:
-                          OutlineInputBorder(), // Adds a border around the dropdown
+                          OutlineInputBorder(),
                     ),
                     hint: const Text('Select Status'),
                     items: _statuses.map((String status) {
